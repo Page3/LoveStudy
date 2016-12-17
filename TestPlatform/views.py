@@ -101,24 +101,29 @@ def getUploads(request):
 '''
 def getFileDetail(FID):
 	List = list(LibraryFile.objects.filter(fid=FID).values('fid','price','name','brief','uid','size','page','download','isfavourite'))
-	UID=List[0]['uid']
+	
+	if len(List)>0:
+		UID=List[0]['uid']
+		List_User = list(User.objects.filter(uid=UID).values('name'))
+		if len(List_User)>0:
+			nickname=List_User[0]['name']
+			
+			for item in List:
+				del item['uid']
+				item['source']=nickname
 
-	List_User = list(User.objects.filter(uid=UID).values('name'))
-	nickname=List_User[0]['name']
-
-	for item in List:
-		del item['uid']
-		item['source']=nickname
-
-	#将List列表中的每一个字典中的每一个键值对转化为字符串类型
-	for item in List:
-		item['fid']=str(item['fid'])
-		item['price']=str(item['price'])
-		item['size']=str(item['size'])+'m'
-		item['page']=str(item['page'])
-		item['download']=str(item['download'])
-		item['isfavourite']=str(item['isfavourite'])
-	return List[0]
+			#将List列表中的每一个字典中的每一个键值对转化为字符串类型
+			for item in List:
+				item['fid']=str(item['fid'])
+				item['price']=str(item['price'])
+				item['size']=str(item['size'])+'m'
+				item['page']=str(item['page'])
+				item['download']=str(item['download'])
+				item['isfavourite']=str(item['isfavourite'])
+			return List[0]
+	else:
+		temp=[]
+		return temp
 
 '''
 根据学校，学院，课程查询所有相关的文件详情-----此函数已处理好
@@ -149,13 +154,14 @@ def setCollege(request):
 
 	temp=User.objects.get(uid=UID)
 
+
 	temp.school=school
 	temp.college=college
 	temp.save()
 
 	flag="yes"
 
-	return HttpResponse("{'status':'yes'}")
+	return HttpResponse('{"status":"yes"}')
 
 '''
 用户增加一个文件到自己的收藏列表中

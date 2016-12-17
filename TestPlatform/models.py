@@ -61,8 +61,8 @@ class PendingFile(models.Model):
 	size        =models.DecimalField(u'文件大小',max_digits=10, decimal_places=3)
 	page         =models.IntegerField(u'文件页数')
 	
-	def __str__(self):
-		return self.fid
+	def __iter__(self):
+		return [ self.fid] 
 
 class LibraryFile(models.Model):
 	fid       =models.IntegerField(u'文件Fid',primary_key=True)
@@ -83,5 +83,5 @@ class LibraryFile(models.Model):
 	price       =models.IntegerField(u'价格')
 	isfavourite =models.IntegerField(u'是否本人上传')
 	
-	def __str__(self):
-		return self.fid
+	def __iter__(self):
+		return [ self.fid] 
