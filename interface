@@ -1,0 +1,177 @@
+
+
+
+/api/getPicures
+[
+	{
+		"imageUrl":"http://.....",
+		"onclickUrl":"https://www.baidu.com"
+	},
+	{
+		"imageUrl":"http://.....",
+		"onclickUrl":"http://blog.mythsman.com"
+	}
+]
+
+
+/api/getLists
+[
+	{
+		"school":"苏州大学",
+		"college":[
+			{
+				"name":"计算机学院",
+				"course":[
+					"C语言",
+					"C++程序设计"
+				]
+			},
+			{
+				"name":"文学院",
+				"course":[
+					"古诗词",
+					"作文"
+				]
+			},{
+				"name":"商学院",
+				"course":[
+					"数钱",
+					"炒股"
+				]
+			}
+		]
+	},
+	{
+		"school":"江南大学",
+		"college":[
+			{
+				"name":"计算机学院2",
+				"course":[
+					"C语言2",
+					"C++程序设计2"
+				]
+			},
+			{
+				"name":"文学院2",
+				"course":[
+					"古诗词2",
+					"作文2"
+				]
+			},{
+				"name":"商学院2",
+				"course":[
+					"数钱2",
+					"炒股2"
+				]
+			}
+		]
+	}
+]
+
+
+/api/getArticles?uid=43243school=苏州大学&college=计算机学院&course=C语言
+[
+	{
+		"fid":"1",
+		"price":"11",
+		"name":"试卷一",
+		"brief":"简介一",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+
+	},
+	{
+		"fid":"12",
+		"price":"12",
+		"name":"试卷二",
+		"brief":"简介二",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+
+	}
+]
+
+
+/api/getUserDetail?uid=32423
+{
+	"name":"mythsman",
+	"level":"23",
+	"point":"100",
+	"school":"苏州大学",
+	"college":"计算机学院",
+}
+
+
+
+/api/getFavourites?uid=3243
+{
+	{
+		"fid":"32131",
+		"price":"10",
+		"name":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"brief":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+	},
+	{
+		"fid":"32131",
+		"price":"10",
+		"name":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"brief":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+	}
+}
+
+/api/addFavourite?uid=42343&fid=3243243
+{
+	'status':'success';//或failure
+}
+
+
+//自己上传的默认添加到自己的收藏
+/api/getUploads?uid=4324
+	{
+		"fid":"32131",
+		"price":"10",
+		"name":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"brief":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+	},
+	{
+		"fid":"32131",
+		"price":"10",
+		"name":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"brief":"2014-2015计算机科学与技术学院编译原理期中考试试卷",
+		"source":"mythsman",
+		"size":"2m",
+		"page":"12",
+		"download":"100",
+		"isfavourite":"1"
+	}
+}
+
+
+/api/setCollege?uid=1323&school=苏州大学&college=计算机学院
+{
+	"status":"yes"//或"no"
+}
+
+//文件上传模块回头再说
+
