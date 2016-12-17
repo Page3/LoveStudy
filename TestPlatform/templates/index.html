@@ -1,0 +1,652 @@
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>
+			WeUI
+		</title>
+		<link rel="stylesheet" href="static/css/weui.min.css" />
+		<link rel="stylesheet" href="static/css/swiper-3.4.0.min.css" />
+		<script type="text/javascript" src="static/js/jquery-3.1.1.min.js">
+		</script>
+		<script type="text/javascript" src="static/js/jquery.form.min.js">
+		</script>
+		<script type="text/javascript" src="static/js/swiper-3.4.0.jquery.min.js">
+		</script>
+	</head>
+	<body ontouchstart>
+		<div class="weui-tab">
+			<div class="weui-navbar">
+				<div class="weui-navbar__item weui-flex" style="background-color:rgb(32,43,57);color:white">
+					<a id="retBtn" href="javascript:;" class="weui-btn weui-btn_mini weui-btn_warn"
+					style="background-color:#303b49;visibility:hidden">
+						返回
+					</a>
+					<div id="title" class="weui-flex__item weui-btn_mini">
+						悦学首页
+					</div>
+					<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_warn" style="background-color:#303b49;visibility:hidden">
+						关闭
+					</a>
+				</div>
+			</div>
+			<div class="weui-tab__panel" style="background-color:#ebebf1">
+				<div id="article" style="display:none;background-color:#ffffff">
+					
+				</div>
+				<div id="favourite" style="display:none">
+									
+				</div>
+				<div id="upload" style="display:none">
+					<div class="weui-cells__title">
+						请选择课程
+					</div>
+					<div class="weui-cells">
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前学校
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="select1" dir="rtl">
+									<option value="1">
+										苏州大学
+									</option>
+									<option value="2">
+										清华大学
+									</option>
+									<option value="3">
+										北京大学
+									</option>
+									　　　　　　　　　　　　　　　　　　　　　　　　
+									<option value="4">
+										中国人民解放军防化指挥工程学院
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前学院
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="select1" dir="rtl">
+									<option value="1">
+										计算机学院
+									</option>
+									<option value="2">
+										电子信息学院
+									</option>
+									<option value="3">
+										文学院
+									</option>
+									　　　　　　　　　　　　　　　　　　　　　　　　
+									<option value="4">
+										商学院
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前课程
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="select2" dir="rtl">
+									<option value="1">
+										C++程序设计
+									</option>
+									<option value="2">
+										汇编课程设计
+									</option>
+									<option value="3">
+										编译原理
+									</option>
+									　　　　　　　　　　　　　　　　　　　　　　　　
+									<option value="4">
+										操作系统
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<form action="comment.php" method="post" enctype="multipart/form-data">
+						<input id="file" type="file" style="display:none" name="name" onchange="$('#fileName').html($('#file').val());"
+						/>
+						<input type="submit" style="display:none" value="Submit Comment" />
+					</form>
+					<div class="weui-cells__title">
+						请选择文件
+					</div>
+					<div class="weui-cells">
+						<a id="chooseFileBtn" class="weui-cell weui-cell_access" href="javascript:;"
+						onclick="$('#file').click();">
+							<div class="weui-cell__bd">
+								<p>
+									选择文件
+								</p>
+							</div>
+							<div id="fileName" class="weui-cell__ft">
+							</div>
+						</a>
+					</div>
+					<div class="weui-cells__title">
+						请输入标题
+					</div>
+					<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="weui-cell__bd">
+								<input class="weui-input" type="text" placeholder="请输入标题">
+							</div>
+						</div>
+					</div>
+					<div class="weui-cells__title">
+						请输入简介
+					</div>
+					<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="weui-cell__bd">
+								<textarea class="weui-textarea" placeholder="请输入简介" rows="3">
+								</textarea>
+							</div>
+						</div>
+					</div>
+					<a href="javascript:;" class="weui-btn weui-btn_primary">
+						确认上传
+					</a>
+				</div>
+				<div id="myfile" style="display:none">
+				</div>
+				<div id="about" style="display:none">
+				</div>
+				<div id="module1">
+					<div class="swiper-container" style="height:200px;">
+						<div id="pictures" class="swiper-wrapper">	
+						</div>
+						<div class="swiper-pagination">
+						</div>
+					</div>
+				</div>
+				<div id="module2" style="display:none">
+					<div class="weui-cells__title">
+						文档筛选
+					</div>
+					<div class="weui-cells">
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前学校
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="searchSchool" dir="rtl">
+								</select>
+							</div>
+						</div>
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前学院
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="searchCollege" dir="rtl">
+								</select>
+							</div>
+						</div>
+						<div class="weui-cell weui-cell_select weui-cell_select-after">
+							<div class="weui-cell__hd">
+								<label for="" class="weui-label">
+									当前课程
+								</label>
+							</div>
+							<div class="weui-cell__bd">
+								<select class="weui-select" name="searchCourse" dir="rtl">
+								</select>
+							</div>
+						</div>
+						<a id="search" href="javascript:;" class="weui-btn weui-btn_primary">
+							开始搜索
+						</a>
+					</div>
+					<div class="weui-cells__title">
+						筛选结果
+					</div>
+					<div id="articlePanel" class="weui-cells" style="background-color:#ebebf1">
+						
+					</div>
+					<div style="height:70px">
+					</div>
+				</div>
+				<div id="module3" style="display:none">
+					<div class="weui-cells__title">
+						我的信息
+					</div>
+					<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的昵称
+								</p>
+							</div>
+							<div id="myname" class="weui-cell__ft">
+								mythsman
+							</div>
+						</div>
+						<div class="weui-cell">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的等级
+								</p>
+							</div>
+							<div id="mylevel" class="weui-cell__ft">
+								1000级
+							</div>
+						</div>
+						<div class="weui-cell">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的积分
+								</p>
+							</div>
+							<div id="mypoint" class="weui-cell__ft">
+								2147483647
+							</div>
+						</div>
+						<a class="weui-cell weui-cell_access" href="javascript:;" style="padding-top:0px;padding-bottom:0px">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的大学
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+								<select class="weui-select" name="myschool" dir="rtl">
+									<option value="苏州大学">
+										苏州大学
+									</option>
+									<option value="清华大学">
+										清华大学
+									</option>
+									<option value="北京大学">
+										北京大学
+									</option>　　　　　　　　
+									<option value="中国人民解放军">
+										中国人民解放军
+									</option>
+								</select>
+							</div>
+						</a>
+						<a class="weui-cell weui-cell_access" href="javascript:;" style="padding-top:0px;padding-bottom:0px">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的学院
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+								<select class="weui-select" name="mycollege" dir="rtl">
+									<option value="计算机学院">
+										计算机学院
+									</option>
+									<option value="电子信息学院">
+										电子信息学院
+									</option>
+									<option value="文学院">
+										文学院
+									</option>
+									　　　　　　　　　　　　　　　　　　　　　　　　
+									<option value="商学院">
+										商学院
+									</option>
+								</select>
+							</div>
+						</a>
+					</div>
+					<div class="weui-cells__title">
+						我的文库
+					</div>
+					<div class="weui-cells">
+						<a id="favouriteBtn" class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的收藏
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+							</div>
+						</a>
+						<a id="uploadBtn" class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我要上传
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+							</div>
+						</a>
+						<a id="myfileBtn" class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									我的文件
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+							</div>
+						</a>
+					</div>
+					<div class="weui-cells__title">
+						关于
+					</div>
+					<div class="weui-cells">
+						<a id="aboutBtn" class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd">
+								<img src="static/icons/icon_tabbar.png" alt="" style="width:20px;margin-right:5px;display:block">
+							</div>
+							<div class="weui-cell__bd">
+								<p>
+									关于
+								</p>
+							</div>
+							<div class="weui-cell__ft">
+							</div>
+						</a>
+					</div>
+					<div style="height:70px">
+					</div>
+				</div>
+			</div>
+			<div class="weui-tabbar">
+				<a href="javascript:;" id="menu1" class="weui-tabbar__item weui-bar__item_on">
+					<img src="static/icons/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">
+						悦学首页
+					</p>
+				</a>
+				<a href="javascript:;" id="menu2" class="weui-tabbar__item">
+					<img src="static/icons/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">
+						悦学文库
+					</p>
+				</a>
+				<a href="javascript:;" id="menu3" class="weui-tabbar__item">
+					<img src="static/icons/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">
+						我的设置
+					</p>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var currentModule = 1;
+			var title = new Array(4);
+			title[1] = "悦学首页";
+			title[2] = "悦学文库";
+			title[3] = "我的设置";
+			var lectureList;
+			var uid="0";
+			var articles;
+			var currentArticleId;
+			var myFavourites;
+
+			$(function() {
+				$('#file').ajaxForm(function(data) {
+					alert(data);
+				});
+
+/////////////////////////////////////////页面逻辑/////////////////////////
+
+				$("#retBtn").on('click',
+				function() {
+					$('#favourite').css("display", "none");
+					$('#myfile').css("display", "none");
+					$('#article').css("display", "none");
+					$('#upload').css("display", "none");
+					$('#retBtn').css("visibility", "hidden");
+					$('.weui-tabbar').css("display", "flex");
+					$('.weui-tabbar').css("display", "-webkit-box");
+					$('#module' + currentModule).css("display", "block");
+					$('#title').html(title[currentModule]);
+				});
+
+				$("#favouriteBtn").on('click',
+				function() {
+					content="";
+					$.getJSON("/api/getFavourites?uid="+uid,function(data,status){
+						myFavourites=data;
+						$.each(data,function(k,v){
+							content+='<div class=" preview"><div class="page__bd"><div class="weui-form-preview"><div class="weui-form-preview__hd"><label class="weui-form-preview__label">价格</label><em class="weui-form-preview__value">￥'+v['price']+'</em></div><div class="weui-form-preview__bd"><div class="weui-form-preview__item"><label class="weui-form-preview__label">名称</label><span class="weui-form-preview__value">'+v['name']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">简介</label><span class="weui-form-preview__value">'+v['brief']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">来源</label><span class="weui-form-preview__value">'+v['source']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">大小</label><span class="weui-form-preview__value">'+v['size']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">页数</label><span class="weui-form-preview__value">'+v['page']+'页</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">下载次数</label><span class="weui-form-preview__value">'+v['download']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">预览</label><span class="weui-form-preview__value">当前暂不支持预览</span></div></div><div class="weui-form-preview__ft"><a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">移出收藏</a><button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">直接打印</button></div></div></div><br></div>';
+						});
+					});
+					$('#favourite').html(content);
+					$('#favourite').css("display", "block");
+					$('#retBtn').css("visibility", "visible");
+					$('.weui-tabbar').css("display", "none");
+					$('#module' + currentModule).css("display", "none");
+					$('#title').html("我的收藏");
+				});
+
+				$("#myfileBtn").on('click',
+				function() {
+					$('#myfile').css("display", "block");
+					$('#retBtn').css("visibility", "visible");
+					$('.weui-tabbar').css("display", "none");
+					$('#module' + currentModule).css("display", "none");
+					$('#title').html("我的文件");
+				});
+
+				$("#uploadBtn").on('click',
+				function() {
+					$('#upload').css("display", "block");
+					$('#retBtn').css("visibility", "visible");
+					$('.weui-tabbar').css("display", "none");
+					$('#module' + currentModule).css("display", "none");
+					$('#title').html("我要上传");
+				});
+
+				$("#aboutBtn").on('click',
+				function() {
+					$('#help').css("display", "block");
+					$('#retBtn').css("visibility", "visible");
+					$('.weui-tabbar').css("display", "none");
+					$('#module' + currentModule).css("display", "none");
+					$('#title').html("关于");
+				});
+
+				
+
+				$('.weui-navbar__item').on('click',
+				function() {
+					$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+				});
+
+				$('.weui-tabbar__item').on('click',
+				function() {
+					$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+				});
+
+				$('#menu1').on('click',
+				function() {
+					currentModule = 1;
+					$('#module1').css("display", "block");
+					$('#title').html(title[currentModule]);
+					$('#module1').siblings().css("display", "none");
+				});
+
+				$('#menu2').on('click',
+				function() {
+					currentModule = 2;
+					$('#module2').css("display", "block");
+					$('#title').html(title[currentModule]);
+					$('#module2').siblings().css("display", "none");
+
+				});
+
+				$('#menu3').on('click',
+				function() {
+					currentModule = 3;
+					$('#module3').css("display", "block");
+					$('#title').html(title[currentModule]);
+					$('#module3').siblings().css("display", "none");
+
+				});
+
+
+////////////////////////////////////数据逻辑///////////////////
+				$.getJSON("api/getPictures",function(data,status){
+					content="";
+					$.each(data,function(k,v){
+						content+='<div class="swiper-slide" onclick="window.location.href=\''+v['onclickUrl']+'\'" ><img src="'+v['imageUrl']+'" class="weui-gallery__img" style="width:100%;height:200px;"></div>';
+					});
+					$('#pictures').html(content);
+					new Swiper('.swiper-container', {
+						direction: 'horizontal',
+						loop: true,
+						autoplay: 2000,
+						autoplayDisableOnInteraction: false,
+						pagination: '.swiper-pagination',
+						paginationClickable: true
+					})
+				});
+				
+				
+				$.getJSON("api/getLists",function(data,status){
+					lectureList=data;
+					content="";
+					$.each(data,function(k,v){
+						content+="<option value="+v['school']+">"+v['school']+"</option>";
+					});
+					$("select[name=searchSchool]").html(content);
+					$("select[name=myschool]").html(content);
+					$("select[name=searchSchool]").change();
+					$("select[name=searchCollege]").change();
+				});
+				
+				$.getJSON("api/getUserDetail?uid="+uid,function(data,status){
+					data=data[0];
+					$('#myname').html(data['name']);
+					$('#mylevel').html(data['level']);
+					$('#mypoint').html(data['point']);
+					$('select[name=myschool]').val(data['school']);
+					$('select[name=mycollege]').val(data['college']);
+				});
+
+				$("select[name=myschool]").on('change',function(){
+					content="";
+					$.each(lectureList,function(k,v){
+						if(v['school']==$("select[name=myschool]").val()){
+							$.each(v['college'],function(m,n){
+								content+="<option value="+n['name']+">"+n['name']+"</option>";
+							});
+							return;
+						}
+					});
+					$("select[name=mycollege]").html(content);
+				});
+
+				$("select[name=searchSchool]").on('change',function(){
+					content="";
+					$.each(lectureList,function(k,v){
+						if(v['school']==$("select[name=searchSchool]").val()){
+							$.each(v['college'],function(m,n){
+								content+="<option value="+n['name']+">"+n['name']+"</option>";
+							});
+							return;
+						}
+					});
+					$("select[name=searchCollege]").html(content);
+					$("select[name=searchCollege]").change();
+					
+				});
+				$("select[name=searchCollege]").on('change',function(){
+					content="";
+					$.each(lectureList,function(k,v){
+						if(v['school']==$("select[name=searchSchool]").val()){
+							$.each(v['college'],function(m,n){
+								if(n['name']==$("select[name=searchCollege]").val()){
+									$.each(n['course'],function(a,b){
+										content+="<option value="+b+">"+b+"</option>";
+									});
+									return;
+								}
+							});
+						}
+					});
+					$("select[name=searchCourse]").html(content);
+					$("select[name=searchCourse]").change();
+				});
+
+
+				$("#search").on('click',function(){
+					param={
+						'uid':uid,
+						'school':$("select[name=searchSchool]").val(),
+						'college':$("select[name=searchCollege]").val(),
+						'course':$("select[name=searchCourse]").val()
+					};
+
+					$.getJSON("api/getArticles",param,function(data,status){
+						articles=data;
+						content="";
+						$.each(articles,function(k,v){
+							content+='<div class="weui-panel" name="'+k+'"><div class="weui-panel__bd"><div class="weui-media-box weui-media-box_text"><h4 class="weui-media-box__title">'+v['name']+'</h4><p class="weui-media-box__desc">'+v['brief']+'</p><ul class="weui-media-box__info"><li class="weui-media-box__info__meta">下载次数：'+v['download']+'</li><li class="weui-media-box__info__meta">文件来源：'+v['source']+'</li></ul></div></div></div>'
+						});
+						$('#articlePanel').html(content);
+						$('.weui-panel').on('click',
+						function() {
+							currentArticleId=$(this).attr('name');
+							state="";
+							if(articles[currentArticleId]['isfavourite']=='1'){
+								state="已收藏";
+							}else{
+								state="加入收藏";
+							}
+							$('#article').html('<div class=" preview"><div class="page__bd"><div class="weui-form-preview"><div class="weui-form-preview__hd"><label class="weui-form-preview__label">价格 </label><em class="weui-form-preview__value">￥'+articles[currentArticleId]['price']+'</em></div><div class="weui-form-preview__bd"><div class="weui-form-preview__item"><label class="weui-form-preview__label">名称 </label><span class="weui-form-preview__value"> '+articles[currentArticleId]['name']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">简介 </label><span class="weui-form-preview__value">'+articles[currentArticleId]['brief']+'</span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">来源 </label><span class="weui-form-preview__value">'+articles[currentArticleId]['source']+' </span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">大小 </label><span class="weui-form-preview__value">'+articles[currentArticleId]['size']+' </span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">页数 </label><span class="weui-form-preview__value">12页 </span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">下载次数 </label><span class="weui-form-preview__value">'+articles[currentArticleId]['download']+' </span></div><div class="weui-form-preview__item"><label class="weui-form-preview__label">预览 </label><span class="weui-form-preview__value">当前暂不支持预览 </span></div></div><div class="weui-form-preview__ft"><a class="addFavourite weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">'+state+'</a><button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">直接打印 </button></div></div></div></div>');
+							$('#retBtn').css("visibility", "visible");
+							$('.weui-tabbar').css("display", "none");
+							$('#module' + currentModule).css("display", "none");
+							$('#article').css("display", "block");
+							$('#title').html("当前文章");
+							
+							if(articles[currentArticleId]['isfavourite']!='1'){							
+								$('.addFavourite').on('click',function(){
+									param={'uid':uid,'fid':articles[currentArticleId]['fid']};
+									$.getJSON("api/addFavourite",param,function(k,v){});
+									$('.weui-panel').click();
+								});
+							}
+						});
+					});
+					
+				});
+			});
+		</script>
+	</body>
+</html>
